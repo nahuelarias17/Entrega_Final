@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>{{ user.username }}</h2>
+  <img src="{{ user.profile_picture.url }}" alt="{{ user.username }}">
+  <p>{{ user.bio }}</p>
+  <p>Sitio Web: <a href="{{ user.website }}">{{ user.website }}</a></p>
+  {% if user.is_superuser %}
+    <p><a href="{% url 'admin:index' %}">Eres administrador</a></p>
+  {% endif %}
+  <a href="{% url 'accounts:edit_profile' %}">Editar perfil</a>
+{% endblock %}

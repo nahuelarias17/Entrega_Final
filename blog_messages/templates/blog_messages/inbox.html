@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Bandeja de entrada</h1>
+  {% if messages %}
+    <ul>
+    {% for message in messages %}
+      <li>
+        <a href="{% url 'blog_messages:view_message' message.id %}">
+          <strong>{{ message.subject }}</strong>
+          <br>
+          <small>from {{ message.sender.username }} at {{ message.timestamp }}</small>
+        </a>
+      </li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>No hay mensajes recibidos</p>
+  {% endif %}
+{% endblock %}

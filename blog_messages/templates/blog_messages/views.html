@@ -1,0 +1,10 @@
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block content %}#}
+{#  <h1>{{ message.subject }}</h1>#}
+{#  <p><strong>De:</strong> {{ message.sender.username }} &lt;{{ message.sender.email }}&gt;</p>#}
+{#  <p><strong>Para:</strong> {{ message.recipient.username }} &lt;{{ message.recipient.email }}&gt;</p>#}
+{#  <p><strong>Fecha:</strong> {{ message.timestamp }}</p>#}
+{#  <p>{{ message.body }}</p>#}
+{#  <a href="{% url 'reply_message2' message.id %}">Responder</a>#}
+{#{% endblock %}#}

@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>{% block title %} {% endblock %}</title>
+      <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+   </head>
+   <body>
+      <header>
+         <nav>
+            <ul>
+               <li><a href="{% url 'accounts:signup' %}">Registrarse</a></li>
+               {% if user.is_authenticated %}
+               <li><a href="{% url 'accounts:profile' %}">Perfil</a></li>
+               <li><a href="{% url 'accounts:logout' %}">Salir</a></li>
+               {% else %}
+               <li><a href="{% url 'accounts:login' %}">Iniciar Sesión</a></li>
+               {% endif %}
+               <li>
+                  <a href="{% url 'blog_messages:messages_section' %}">Mensajes</a>
+               <li><a class="nav-link" href="{% url 'pages:page_list' %}">Páginas</a></li>
+               <li><a class="nav-link" href="{% url 'pages:page_new' %}">Crear Página</a></li>
+            </ul>
+         </nav>
+      </header>
+      <main>
+         {% block content %}
+         {% endblock %}
+      </main>
+      <footer>
+         <p class="footer-link"><a href="{% url 'accounts:about' %}">Acerca de Nosotros</a></p>
+         <p>Todos los derechos reservados &copy;2023.</p>
+      </footer>
+   </body>
+</html>

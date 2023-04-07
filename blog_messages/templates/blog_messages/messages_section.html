@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}Mensajes{% endblock %}
+
+{% block content %}
+<h1>Mensajes</h1>
+<ul>
+  <li><a href="{% url 'blog_messages:inbox' %}">Bandeja de entrada</a></li>
+  <li><a href="{% url 'blog_messages:outbox' %}">Bandeja de salida</a></li>
+  <li><a href="{% url 'blog_messages:send_message' %}">Enviar mensaje</a></li>
+</ul>
+{% endblock %}
