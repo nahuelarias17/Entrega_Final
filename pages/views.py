@@ -25,7 +25,6 @@ def page_new(request):
         if form.is_valid():
             page = form.save(commit=False)
             page.author = request.user
-            page.date_published = timezone.now()
             page.save()
             return redirect('pages:page_detail', pk=page.pk)
     else:
